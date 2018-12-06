@@ -290,7 +290,7 @@ section.box-challenge {
 .row-three p span {
   font-weight: 100;
 }
-.row-three button.delete-card {
+.row-three button.delete-btn {
   margin-right: 1em;
   border-radius: 50%;
   line-height: 1;
@@ -300,7 +300,7 @@ section.box-challenge {
   text-align: center;
   color: #cccccc;
 }
-.row-three button.delete-card span {
+.row-three button.delete-btn span {
   line-height: 1;
   margin: auto;
   font-weight: 400;
@@ -309,7 +309,7 @@ section.box-challenge {
   left: -2px;
   top: -1px;
 }
-.row-three button.delete-card:hover {
+.row-three button.delete-btn:hover {
   background-color:#DD1972;
   color:#fff;
 }
@@ -329,6 +329,7 @@ section.box-challenge {
     width:100%;
   }
 }
+
 
 
 

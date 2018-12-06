@@ -2,121 +2,133 @@
 <html>
 <head>
   <title>Number Guesser</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+
+  <!-- STYLESHEETS/CSS -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
   <header>
-    <h1>NUMBERGUESSER</h1>
-    <span>ULTIMATE CHALLENGER EDITION</span>
-  </header>
-  <main>
-    <div class="set-range">
-      <h3>Set Range</h3>
-      <fieldset>
-        <p>Min Range</p>
-        <input type="text" name="min-range">
-      </fieldset>
-      <fieldset>
-        <p>Max Range</p>
-        <input type="text" name="max-range">
-      </fieldset>
-      <button>UPDATE</button>
+    <div>
+      <h1>NUMBER<span>GUESSER</span></h1>
+      <h6>ULTIMATE CHALLENGER EDITION</h6>
     </div>
-    <div class="guesser">
-      <p>The Current Range is 1 to 100</p>
-      <fieldset>
-        <h3>Challenger 1</h3>
-        <form>
-          <label>Name</label>
-          <input type="text" name="name1">
-        </form>
-        <form>
-          <label>Guess</label>
-          <input type="text" name="guess1">
-        </form>
-      </fieldset>
-      <fieldset>
-        <h3>Challenger 2</h3>
-        <form>
-          <label>Name</label>
-          <input type="text" name="name2">
-        </form>
-        <form>
-          <label>Guess</label>
-          <input type="text" name="guess2">
-        </form>
-      </fieldset>
-      <fieldset>
-        <button>SUBMIT GUESS</button>
-        <button>RESET GAME</button>
-        <button>CLEAR GAME</button>
-      </fieldset>
-    </div>
-    <div class="last-guess">
-      <h3>Latest Score</h3>
-      <aside>
-        <h3>Challenger 1 Name</h3>
-        <span>current guess</span>
-        <h4>97</h4>
-        <span>that's too high</span>
-      </aside>
-      <aside>
-        <h3>Challenger 2 Name</h3>
-        <span>current guess</span>
-        <h4>97</h4>
-        <span>that's too high</span>
-      </aside>
-    </div>
-  </main>
-  <main>
-    <section>
-      <div>
-        <h3>CHALLENGER NAME 1</h3>
-        <span>vs</span>
-        <h3>CHALLENGER NAME 2</h3>
+  </header><!-- /End Header -->
+  <section class="col-container">
+    <main class="col-content left-side">
+      <div class="box-content set-range">
+        <h3>Set Range</h3>
+        <fieldset class="set-range-row">
+          <label>Min Range</label>
+          <input class="input-small" type="text" name="min-range" id="min-range">
+        </fieldset>
+        <fieldset class="set-range-row">
+          <label>Max Range</label>
+          <input class="input-small" type="text" name="max-range" id="max-range">
+        </fieldset>
+        <div class="set-range-row button-container">
+          <button id="set-range">UPDATE</button>
+        </div>
       </div>
-      <div>
-        <h2>CHALLENGER 2 NAME</h2>
-        <span>WINNER</span>
+      <div class="box-content guesser">
+        <p>The Current Range is <span id="min-guess">1</span> to <span id="max-guess">100</span></p>
+        <fieldset>
+          <h3>Challenger 1</h3>
+          <form>
+            <label>Name</label>
+            <input class="input-large" type="text" name="name1" id="name-one">
+          </form>
+          <form>
+            <label>Guess</label>
+            <input class="input-small" type="text" name="guess1">
+          </form>
+        </fieldset>
+        <fieldset>
+          <h3>Challenger 2</h3>
+          <form>
+            <label>Name</label>
+            <input class="input-large" type="text" name="name2" id="name-two">
+          </form>
+          <form>
+            <label>Guess</label>
+            <input class="input-small" type="text" name="guess2">
+          </form>
+        </fieldset>
+        <div class="guesser-row button-container">
+          <button id="submit-btn">SUBMIT GUESS</button>
+          <button class="light-btn">RESET GAME</button>
+          <button class="light-btn">CLEAR GAME</button>
+        </div>
       </div>
-      <div>
-        <p>47</p> <span>GUESSES</span>>
-        <p>1.35</p> <span>MINUTES</span>
-        <img src="" class="delete-card">
+      <div class="box-content last-guess">
+        <h3>Latest Score</h3>
+        <section>
+          <aside>
+            <h4>Challenger 1 Name</h4>
+            <label>current guess</label>
+            <h5 class="display-number">97</h5>
+            <span>that's too high</span>
+          </aside>
+          <aside>
+            <h4>Challenger 2 Name</h4>
+            <label>current guess</label>
+            <h5 class="display-number">3</h5>
+            <span>that's too high</span>
+          </aside>
+        </section>
       </div>
-    </section>
-    <section>
-      <div>
-        <h3>CHALLENGER NAME 1</h3>
-        <span>vs</span>
-        <h3>CHALLENGER NAME 2</h3>
-      </div>
-      <div>
-        <h2>CHALLENGER 2 NAME</h2>
-        <span>WINNER</span>
-      </div>
-      <div>
-        <p>47</p> <span>GUESSES</span>>
-        <p>1.35</p> <span>MINUTES</span>
-        <img src="" class="delete-card">
-      </div>
-    </section>
-    <section>
-      <div>
-        <h3>CHALLENGER NAME 1</h3>
-        <span>vs</span>
-        <h3>CHALLENGER NAME 2</h3>
-      </div>
-      <div>
-        <h2>CHALLENGER 2 NAME</h2>
-        <span>WINNER</span>
-      </div>
-      <div>
-        <p>47</p> <span>GUESSES</span>>
-        <p>1.35</p> <span>MINUTES</span>
-        <img src="" class="delete-card">
-      </div>
-    </section>
-  </main>
-</body>
-</html>
+    </main><!-- /End Left Side Main -->
+    <main class="col-content right-side">
+      <section class="box-challenge">
+        <div class="row-one">
+          <h3 class="challenger-one">CHALLENGER NAME 1</h3>
+          <span>vs</span>
+          <h3 class="challenger-two">CHALLENGER NAME 2</h3>
+        </div>
+        <div class="row-two">
+          <h2>CHALLENGER 2 NAME <span>WINNER</span></h2>
+        </div>
+        <div class="row-three">
+          <p>47 <span>GUESSES</span></p>
+          <p>1.35 <span>MINUTES</span></p>
+          <button class="delete-card"><span>x</span></button>
+        </div>
+      </section><!-- END Challenge Box -->
+      <section class="box-challenge">
+        <div class="row-one">
+          <h3>CHALLENGER NAME 1</h3>
+          <span>vs</span>
+          <h3>CHALLENGER NAME 2</h3>
+        </div>
+        <div class="row-two">
+          <h2>CHALLENGER 2 NAME <span>WINNER</span></h2>
+        </div>
+        <div class="row-three">
+          <p>47 <span>GUESSES</span></p>
+          <p>1.35 <span>MINUTES</span></p>
+          <button class="delete-card"><span>x</span></button>
+        </div>
+      </section><!-- END Challenge Box -->
+      <section class="box-challenge">
+        <div class="row-one">
+          <h3>CHALLENGER NAME 1</h3>
+          <span>vs</span>
+          <h3>CHALLENGER NAME 2</h3>
+        </div>
+        <div class="row-two">
+          <h2>CHALLENGER 2 NAME <span>WINNER</span></h2>
+        </div>
+        <div class="row-three">
+          <p>47 <span>GUESSES</span></p>
+          <p>1.35 <span>MINUTES</span></p>
+          <button class="delete-card"><span>x</span></button>
+        </div>
+      </section><!-- END Challenge Box -->
+    </main><!-- /End Right Side Main -->
+  </section>
+</body><!-- /End Body -->
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="main.js"></script>
+</html><!-- /End Html -->

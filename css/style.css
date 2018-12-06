@@ -1,0 +1,335 @@
+/* Project STYLES
+
+FONTS
+font-family: 'Open Sans', sans-serif;
+******************************
+
+STYLES
+Left Side Background #f7f7f7
+Right Side Background #404041
+
+Pink #DD1972
+
+Active State Button
+BG #6e6e6e
+color #FFFFFF
+
+Disabled State Button
+BG #D0D2D3
+Color #FFFFFF
+
+On Hover and click
+BG #DD1972
+Color #FFFFFF
+
+Lateset Score
+number color #F74D9B
+
+******************************
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+
+/* START Global */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+html {
+  background-color: #404041;
+}
+body {
+  margin:0;
+  font-family: 'Open Sans', sans-serif;
+}
+h3 {
+  color: #404041;
+  font-weight: 800;
+  font-size: 1.1em;
+  line-height: 1;
+  padding-bottom: 6px;
+}
+h4 {
+  color: #6e6e6e;
+  font-weight: 600;
+  letter-spacing: .03em;
+  font-size: 1em;
+  padding-bottom: 5px;
+  line-height: 1;
+}
+h5.display-number {
+  color:#DD1972;
+  font-weight: 800;
+  line-height: 1;
+  font-size: 4em;
+}
+button {
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+div.button-container button:hover {
+  color:#fff;
+  background-color:#DD1972;
+}
+input {
+  font-size: .9em;
+  margin-right: 5px;
+  border: #ececec solid 1px;
+  height: 25px;
+  padding: 5px;
+}
+/* END Global */
+
+
+/* START Header */
+header {
+  background-color:#404041;
+  text-align: center;
+  padding: 1.2em 0;
+}
+header div {
+  display: inline-block;
+}
+h1 {
+  color:#DD1972;
+  margin: 0;
+  font-size: 3em;
+  padding-bottom: 5px;
+}
+h1 span {
+  font-weight: 100;
+}
+header h6 {
+  color:#fff;
+  font-weight: 100;
+  font-size: 1em;
+  position: relative;
+}
+header h6::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 1px;
+  background-color: #fff;
+  left: 0px;
+  top: 50%;
+}
+header h6::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 1px;
+  background-color: #fff;
+  right: 0px;
+  top: 50%;
+}
+/* END Header */
+
+/* START Columns */
+.col-container {
+  display: flex;
+}
+.col-content {
+  width: 50%;
+}
+div.button-container {
+  text-align: center;
+}
+div.button-container button {
+  color: #fff;
+  background-color: #6e6e6e;
+  font-weight: 800;
+  font-size: .8em;
+  padding: .5em 2em;
+  border-radius: 1em;
+  line-height: 1;
+  border: none;
+}
+div.button-container button.light-btn {
+  background-color: #D0D2D3;
+}
+.box-content fieldset {
+  padding: 0;
+}
+.box-content label {
+  font-size: .9em;
+  color: #727378;
+  line-height: 1;
+  padding-bottom: 5px;
+  font-weight: 400;
+  display: block;
+}
+/* END Columns */
+
+/* START Left Side Column */
+.left-side {
+  background-color:#f7f7f7;
+  padding: 1em;
+}
+.box-content {
+  background-color: #fff;
+  margin-bottom:1em;
+  border:#eaeaea solid 1px;
+  padding: 1em;
+}
+.box-content .set-range-row {
+  display: inline-block;
+  width:32%;
+}
+.input-small {
+  max-width: 130px;
+}
+.input-large {
+}
+
+/* guesser styles */
+.box-content.guesser p {
+  color:#525252;
+  padding-bottom: 1em;
+}
+.box-content.guesser p span {
+  text-decoration: underline;
+  font-weight: 800;
+}
+.box-content.guesser fieldset {
+  padding-bottom: 1.5em;
+}
+.box-content.guesser fieldset form {
+  display: inline-block;
+}
+
+/* last guess styles */
+.box-content.last-guess section {
+  display: flex;
+}
+.box-content.last-guess aside {
+  width: 50%;
+  text-align: center;
+  padding: .5em 1em .1em 1em;
+}
+.box-content.last-guess aside:first-child {
+  border-right: #ececec solid 2px;
+}
+.box-content.last-guess aside label {
+  font-weight: 100;
+  padding-bottom: 3px;
+}
+.box-content.last-guess aside span {
+  font-weight: 100;
+}
+/* END Left Side Column */
+
+/* START Right Side Column */
+.right-side {
+  background-color:#d1d2d4;
+  padding: 1em 2em;
+  border-left: #aaaaaa solid 1px;
+}
+section.box-challenge {
+  border: #aaaaaa solid 1px;
+  background-color:#fff;
+  padding: 0 .5em;
+  margin-bottom: .5em;
+}
+.row-one, .row-two, .row-three {
+  display: block;
+  padding: .2em 0;
+}
+/* row one */
+.row-one h3, .row-one span {
+  display: inline-block;
+  color:#7f7f7f;
+  text-align: center;
+}
+.row-one h3 {
+  font-weight: 800;
+  width:45%;
+  font-size:.8em;
+  padding-bottom: 4px;
+}
+.row-one span {
+  font-weight: 100;
+  width: 5%;
+  font-size: .8em;
+  vertical-align: top;
+}
+/* row two */
+.box-challenge .row-two {
+  border-top: #ececec solid 1px;
+  border-bottom: #ececec solid 1px;
+  text-align: center;
+  padding: 1.2em 0;
+}
+.row-two h2 {
+  color:#7f7f7f;
+  font-weight: 800;
+  font-size: 1.85em;
+  line-height: 1.3;
+}
+.row-two h2 span {
+  font-weight: 100;
+  display: block;
+}
+/* row three */
+.row-three {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.row-three p, .row-three button {
+  display: inline-block;
+}
+.row-three p {
+  color:#7f7f7f;
+  font-weight: 800;
+  font-size: .85em;
+  margin-left: 1em;
+}
+.row-three p span {
+  font-weight: 100;
+}
+.row-three button.delete-card {
+  margin-right: 1em;
+  border-radius: 50%;
+  line-height: 1;
+  background-color: #7f7f7f;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  color: #cccccc;
+}
+.row-three button.delete-card span {
+  line-height: 1;
+  margin: auto;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+  left: -2px;
+  top: -1px;
+}
+.row-three button.delete-card:hover {
+  background-color:#DD1972;
+  color:#fff;
+}
+/* END Right Side Column */
+
+
+/* START Media Query */
+@media screen and (max-width: 1050px) {
+
+}
+
+@media screen and (max-width: 768px) {
+  .col-container {
+    display: block;
+  }
+  .col-content {
+    width:100%;
+  }
+}
+
+
+
+/* END Media Query */

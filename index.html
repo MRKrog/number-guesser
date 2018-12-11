@@ -20,17 +20,19 @@
     <main class="col-content left-side">
       <div class="box-content set-range">
         <h3>Set Range</h3>
-        <fieldset class="set-range-row">
-          <label>Min Range</label>
-          <input type="number" class="input-small" type="text" name="min-range" id="min-range-input">
-        </fieldset>
-        <fieldset class="set-range-row">
-          <label>Max Range</label>
-          <input type="number" class="input-small" type="text" name="max-range" id="max-range-input">
-        </fieldset>
-        <div class="set-range-row button-container">
-          <button id="set-range">UPDATE</button>
-        </div>
+        <form class="form-row">
+          <fieldset class="set-range-row">
+            <label>Min Range</label>
+            <input type="number" class="input-small" type="text" name="min-range" id="min-range-input">
+          </fieldset>
+          <fieldset class="set-range-row">
+            <label>Max Range</label>
+            <input type="number" class="input-small" type="text" name="max-range" id="max-range-input">
+          </fieldset>
+          <div class="set-range-row button-container">
+            <button id="set-range">UPDATE</button>
+          </div>
+        </form>
       </div>
       <div class="box-content guesser">
         <p>The Current Range is <span id="min-range-output">1</span> to <span id="max-range-output">100</span></p>
@@ -42,7 +44,7 @@
           </form>
           <form class="myForm">
             <label>Guess</label>
-            <input type="number" class="input-small" type="text" name="guess1" id="guess-one">
+            <input type="number" class="input-small" type="text" name="guess1" id="guess-one" min="100" max="300" required>
           </form>
         </fieldset>
         <fieldset>
@@ -53,7 +55,7 @@
           </form>
           <form class="myForm">
             <label>Guess</label>
-            <input type="number" class="input-small" type="text" name="guess2" id="guess-two">
+            <input type="number" class="input-small" type="text" name="guess2" id="guess-two" min="100" max="300" required>
           </form>
         </fieldset>
         <div class="guesser-row button-container">

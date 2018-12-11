@@ -175,12 +175,18 @@ div.button-container button.light-btn {
   border:#eaeaea solid 1px;
   padding: 1em;
 }
+form.form-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+  flex-wrap: wrap;
+}
 .box-content .set-range-row {
-  display: inline-block;
-  width:32%;
+  flex: 1;
 }
 .input-small {
-  max-width: 130px;
+
 }
 .input-large {
 }

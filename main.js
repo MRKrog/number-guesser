@@ -210,24 +210,31 @@ function compareBoth(a, b){
 
 
 // ********************************************
-// Clicked the RESET button ****************
-function resetClick(){
-
+// Clicked the CLEAR button ****************
+function clearClick(){
+  // resets all the input fields in the current number
   var inputFields = document.querySelectorAll(".myForm");
   for (i = 0; i < inputFields.length; i++) {
       inputFields[i].reset();
   }
 
+  console.log('Clicked Clear');
+}
+
+// ********************************************
+// Clicked the RESET button ****************
+function resetClick(){
+  // resets all the fields and generates new random number
+  clearClick();
+  //grab values from both min and max input boxes and make them numbers
+  var maxRange = parseInt(maxRangeInput.value);
+  var minRange = parseInt(minRangeInput.value);
+
+  generateNumber(maxRange, minRange);
 
 
   console.log('Clicked Reset');
 
-}
-
-// ********************************************
-// Clicked the CLEAR button ****************
-function clearClick(){
-  console.log('Clicked Clear');
 }
 
 // ********************************************

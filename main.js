@@ -1,12 +1,7 @@
 // ********************************************
-// VARIABLES **********************************
+// GLOBAL VARIABLES ***************************
 // ********************************************
-
-
 var randomNumber = null; // Random Generated Number
-
-var time = Date.now(); // Time Variable
-console.log(time);
 
 //Initialzed Click Variables
 var setRangeBtn = document.querySelector('#set-range');
@@ -45,6 +40,8 @@ var guessPlaceholder = 0;
 
 var totalTime = document.querySelector('#total-time');
 var timeUnit = document.querySelector('#time-unit');
+
+
 
 
 // ********************************************
@@ -179,6 +176,7 @@ function compareGuessTwo(guessTwoSubmit) {
     statementTwo.innerText = "that's too low";
   }
 }
+// function to build the card with the winners
 function buildCard(winner){
   console.log(winner);
   winnerName.innerText = winner.value;
@@ -226,7 +224,9 @@ function clearClick(){
 // ********************************************
 // Clicked the CLEAR button ****************
 function deleteClick(){
-  console.log('Clicked Delete');
+  var winnerBox = document.querySelector('.box-challenge');
+  winnerBox.remove();
+  return false;
 }
 
 
@@ -296,4 +296,57 @@ function deleteClick(){
 //  function setRange(){
 //
 //  }
+// });
+
+
+// Page loads - script is called
+//
+// // helper function to trigger alert
+// function showAlert() {
+//   alert('You clicked me!');
+// }
+//
+// //Go to the page, find special new button
+// var addNewButton = document.querySelector('.add-new');
+//
+// //Go to the page, find the parent element of the buttons
+// var buttonDiv = document.querySelector('.parent');
+//
+// // Add a new button to the page whenever the "Add a new button below." button
+// // is pressed.
+//
+// // We refence the variable defined earlier which found our special new button on the page and assigned an event listener to trigger specifically on click that calls an anonymous function
+// addNewButton.addEventListener('click', function () {
+//   // assigning a var to the creation of a new dom node
+//   var newButton = document.createElement('button');
+//   // adding a class to our new dom node
+//   newButton.className = 'button';
+//   // Adding text content to the new dom node
+//   newButton.textContent = "New click me button!";
+//   // Spitting said dom node on to page
+//   buttonDiv.appendChild(newButton);
+// });
+//
+// // Bind an event to all of the "Click me!" buttons that shows an alert.
+//
+// //Go to the page, find all buttons within the parent div
+// var allButtons = document.querySelectorAll('.parent .button');
+//
+// // For loop that iterates through the pre-defined variable that went out and found all the buttons on the page at page load
+// // for(var i = 0; i < allButtons.length; i++){
+// //   allButtons[i].addEventListener('click', showAlert);
+// // }
+//
+//
+//
+// buttonDiv.addEventListener('click', function(event) {
+//   if (event.target.className === 'button') {
+//     console.log('clicked button');
+//     showAlert();
+//     // do your action on your 'button' or whatever it is you're listening for
+//   }
+// });
+
+// document.querySelector('.button').addEventListener('click', function (event) {
+//   console.log(event.target);
 // });

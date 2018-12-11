@@ -149,6 +149,7 @@ div.button-container button {
 }
 div.button-container button.light-btn {
   background-color: #D0D2D3;
+  pointer-events: none;
 }
 .box-content fieldset {
   padding: 0;

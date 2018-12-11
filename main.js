@@ -212,7 +212,16 @@ function compareBoth(a, b){
 // ********************************************
 // Clicked the RESET button ****************
 function resetClick(){
+
+  var inputFields = document.querySelectorAll(".myForm");
+  for (i = 0; i < inputFields.length; i++) {
+      inputFields[i].reset();
+  }
+
+
+
   console.log('Clicked Reset');
+
 }
 
 // ********************************************

@@ -133,6 +133,7 @@ header h6::after {
 }
 .col-content {
   width: 50%;
+  height: auto;
 }
 div.button-container {
   display: flex;
@@ -142,11 +143,13 @@ div.button-container button {
   color: #fff;
   background-color: #6e6e6e;
   font-weight: 800;
-  font-size: .8em;
-  padding: .5em 2em;
+  font-size: .75em;
   border-radius: 1em;
   line-height: 1;
   border: none;
+  height: 24px;
+  width: 100%;
+  letter-spacing: -.01em;
 }
 div.button-container button.current-btns {
   width:32%;
@@ -175,9 +178,12 @@ div.button-container button.light-btn {
 }
 .box-content {
   background-color: #fff;
-  margin-bottom:1em;
-  border:#eaeaea solid 1px;
+  border: #eaeaea solid 1px;
   padding: 1em;
+  margin: auto;
+  margin-bottom: 1em;
+  width: 100%;
+  max-width: 600px;
 }
 form.form-row {
   display: flex;
@@ -191,8 +197,11 @@ form.form-row {
 }
 .input-small {
   width: 95%;
+  margin: 0;
 }
 .input-large {
+  width: 95%;
+  margin: 0;
 }
 
 /* guesser styles */
@@ -208,17 +217,23 @@ form.form-row {
   padding-bottom: 1.5em;
 }
 .box-content.guesser fieldset form {
-  display: inline-block;
+  width:50%;
+}
+section.form-section {
+  display: flex;
 }
 
 /* last guess styles */
 .box-content.last-guess section {
   display: flex;
 }
+.box-content.last-guess {
+  margin-bottom:0;
+}
 .box-content.last-guess aside {
   width: 50%;
   text-align: center;
-  padding: .5em 1em .1em 1em;
+  padding: .5em 0em .1em 0em;
 }
 .box-content.last-guess aside:first-child {
   border-right: #ececec solid 2px;
@@ -235,7 +250,7 @@ form.form-row {
 /* START Right Side Column */
 .right-side {
   background-color:#d1d2d4;
-  padding: 1em 2em;
+  padding: 1em;
   border-left: #aaaaaa solid 1px;
 }
 section.box-challenge {
@@ -243,6 +258,8 @@ section.box-challenge {
   background-color:#fff;
   padding: 0 .5em;
   margin-bottom: .5em;
+  margin: auto;
+  max-width: 600px;
 }
 .row-one, .row-two, .row-three {
   display: block;
@@ -256,8 +273,8 @@ section.box-challenge {
 }
 .row-one h3 {
   font-weight: 800;
-  width:45%;
-  font-size:.8em;
+  width: 45%;
+  font-size: .75em;
   padding-bottom: 4px;
 }
 .row-one span {
@@ -265,6 +282,8 @@ section.box-challenge {
   width: 5%;
   font-size: .8em;
   vertical-align: top;
+  line-height: 1;
+  padding-top: 1px;
 }
 /* row two */
 .box-challenge .row-two {
@@ -343,6 +362,19 @@ section.box-challenge {
   }
 }
 
+@media screen and (max-width: 440px) {
+  /* header */
+  h1 {
+    font-size: 2.2em;
+  }
+  header h6::before, header h6::after {
+    width:28px;
+  }
+  /* current range buttons */
+  div.button-container button {
+    font-size:.7em;
+  }
+}
 
 
 

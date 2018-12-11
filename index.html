@@ -29,11 +29,11 @@
         <form class="form-row">
           <fieldset class="set-range-row">
             <label>Min Range</label>
-            <input type="number" class="input-small" type="text" name="min-range" id="min-range-input" placeholder="Set Min Range" aria-label='Set Min Range'>
+            <input type="number" class="input-small" type="text" name="min-range" id="min-range-input">
           </fieldset>
           <fieldset class="set-range-row">
             <label>Max Range</label>
-            <input type="number" class="input-small" type="text" name="max-range" id="max-range-input" placeholder="Set Max Range" aria-label='Set Max Range'>
+            <input type="number" class="input-small" type="text" name="max-range" id="max-range-input">
           </fieldset>
           <div class="set-range-row button-container">
             <button type="button" id="set-range">UPDATE</button>
@@ -44,25 +44,29 @@
         <p>The Current Range is <span id="min-range-output">1</span> to <span id="max-range-output">100</span></p>
         <fieldset >
           <h3>Challenger 1</h3>
-          <form class="myForm">
-            <label>Name</label>
-            <input class="input-large" type="text" name="name1" id="name-one">
-          </form>
-          <form class="myForm">
-            <label>Guess</label>
-            <input type="number" class="input-small" type="text" name="guess1" id="guess-one" min="100" max="300" required>
-          </form>
+          <section class="form-section">
+            <form class="myForm">
+              <label>Name</label>
+              <input class="input-large" type="text" name="name1" id="name-one">
+            </form>
+            <form class="myForm">
+              <label>Guess</label>
+              <input type="number" class="input-small" type="text" name="guess1" id="guess-one" min="" max="" required>
+            </form>
+          </section>
         </fieldset>
         <fieldset>
           <h3>Challenger 2</h3>
-          <form class="myForm">
-            <label>Name</label>
-            <input class="input-large" type="text" name="name2" id="name-two">
-          </form>
-          <form class="myForm">
-            <label>Guess</label>
-            <input type="number" class="input-small" type="text" name="guess2" id="guess-two" min="100" max="300" required>
-          </form>
+          <section class="form-section">
+            <form class="myForm">
+              <label>Name</label>
+              <input class="input-large" type="text" name="name2" id="name-two">
+            </form>
+            <form class="myForm">
+              <label>Guess</label>
+              <input type="number" class="input-small" type="text" name="guess2" id="guess-two" min="" max="" required>
+            </form>
+          </section>
         </fieldset>
         <div class="guesser-row button-container">
           <button type="button" id="submit-btn" class="current-btns">SUBMIT GUESS</button>

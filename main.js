@@ -244,6 +244,9 @@ function deleteClick(){
   return false;
 }
 
+function easterEgg(){
+  alert("the random number is");
+}
 
 
 

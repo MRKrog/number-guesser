@@ -226,10 +226,9 @@ function clearClick(){
 function resetClick(){
   // resets all the fields and generates new random number
   clearClick();
-  //grab values from both min and max input boxes and make them numbers
+  // //grab values from both min and max input boxes and make them numbers
   var maxRange = parseInt(maxRangeInput.value);
   var minRange = parseInt(minRangeInput.value);
-
   generateNumber(maxRange, minRange);
 
 

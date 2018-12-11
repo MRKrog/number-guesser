@@ -190,7 +190,7 @@ form.form-row {
   flex: 1;
 }
 .input-small {
-
+  width: 95%;
 }
 .input-large {
 }

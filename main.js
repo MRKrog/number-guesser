@@ -69,6 +69,7 @@ function updateClick(){
 
   console.log('Click Update');
 }
+
 function changeRange(max, min){
   // Change text of current range to min and max values
   minRangeOutput.innerText = min;
@@ -131,7 +132,6 @@ function submitClick(){
   compareBoth(guessOneSubmit, guessTwoSubmit); //function to see if they guessed the same reset if they did
   compareGuessOne(guessOneSubmit);
   compareGuessTwo(guessTwoSubmit);
-
 
 }
 // Change Names Across Page on SUBMIT Click

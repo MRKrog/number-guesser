@@ -1,7 +1,13 @@
 <!doctype html>
-<html>
+<html lang='en'>
 <head>
+  <meta charset='UTF-8'/>
   <title>Number Guesser</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Michael Krog's Static Composition One">
+  <link rel="shortcut icon" href="images/favicon.ico" />
 
   <!-- STYLESHEETS/CSS -->
   <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -23,11 +29,11 @@
         <form class="form-row">
           <fieldset class="set-range-row">
             <label>Min Range</label>
-            <input type="number" class="input-small" type="text" name="min-range" id="min-range-input">
+            <input type="number" class="input-small" type="text" name="min-range" id="min-range-input" placeholder="Set Min Range" aria-label='Set Min Range'>
           </fieldset>
           <fieldset class="set-range-row">
             <label>Max Range</label>
-            <input type="number" class="input-small" type="text" name="max-range" id="max-range-input">
+            <input type="number" class="input-small" type="text" name="max-range" id="max-range-input" placeholder="Set Max Range" aria-label='Set Max Range'>
           </fieldset>
           <div class="set-range-row button-container">
             <button type="button" id="set-range">UPDATE</button>

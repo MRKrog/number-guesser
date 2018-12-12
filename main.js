@@ -13,7 +13,7 @@ var deleteBtn = document.querySelector('.delete-btn'); //Will Have To Update
 // Initialzed Set Range Variables
 var minRangeInput = document.querySelector('#min-range-input');
 var maxRangeInput = document.querySelector('#max-range-input');
-
+var rangeFields = document.querySelectorAll(".range-field");
 var minRangeOutput = document.querySelector('#min-range-output');
 var maxRangeOutput = document.querySelector('#max-range-output');
 
@@ -53,6 +53,19 @@ resetBtn.addEventListener('click', resetClick);
 clearBtn.addEventListener('click', clearClick);
 deleteBtn.addEventListener('click', deleteClick);
 
+// event listener to detect if fields in guesser have characters
+document.querySelector('.myForm').addEventListener('click', function (event) {
+  console.log(event.target);
+
+  if(event.target.className === 'input-field'){
+    console.log('in input');
+    // if()
+  } else {
+
+  }
+});
+
+
 // ********************************************
 // FUNCTIONS **********************************
 // ********************************************
@@ -60,14 +73,28 @@ deleteBtn.addEventListener('click', deleteClick);
 // ********************************************
 // Clicked the UPDATE button ****************
 function updateClick(){
-  //grab values from both min and max input boxes and make them numbers
-  var maxRange = parseInt(maxRangeInput.value);
-  var minRange = parseInt(minRangeInput.value);
+  var maxRange = parseInt(maxRangeInput.value); // Max Range Input Value
+  var minRange = parseInt(minRangeInput.value); // Min Range Input Value
+  checkRange(maxRange,minRange);
+}
+//Check to see if the min range is greater than the max range
+function checkRange(maxRange, minRange){
+  if(minRange > maxRange){
+    addBorder();
+    for (i = 0; i < rangeFields.length; i++) {
+      rangeFields[i].value = "";
+      rangeFields[i].classList.add("pinkBorder");
+    }
+  }
+  else {
+    removeBorder();
+    changeRange(maxRange, minRange);
+    generateNumber(maxRange, minRange);
+  }
+}
 
-  changeRange(maxRange, minRange);
-  generateNumber(maxRange, minRange);
+function addBorder(){
 
-  console.log('Click Update');
 }
 
 function changeRange(max, min){
@@ -80,43 +107,43 @@ function generateNumber(max, min){
   console.log("The Random Number is " + randomNumber);
 }
 
-// ********************************************
-// Clicked the SUBMIT button ****************
-
+// ***************
+// Timer Functions
+// ***************
 var c = 0;
 var t;
 var timer_is_on = 0;
 
-
 function timedCount() {
-
-    c = c + 1;
-    t = setTimeout(timedCount, 1000);
+  c = c + 1;
+  t = setTimeout(timedCount, 1000);
 }
 
 function startCount() {
     if (!timer_is_on) {
-        timer_is_on = 1;
-        timedCount();
+      timer_is_on = 1;
+      timedCount();
     }
 }
 
 function stopCount() {
-    clearTimeout(t); // stops the count
-    console.log('stopped count');
-    console.log(c + " total timed number");
-    if(c < 60){
-      console.log('stay in seconds');
-    } else {
-      timeUnit.innerText = "MINUTES";
-      // Do something to time
-      c = (c / 60).toFixed(2);
-      console.log('stay in minutes');
-    }
-    document.getElementById('total-time').innerText = c;
-    timer_is_on = 0;
+  clearTimeout(t); // stops the count
+  console.log('stopped count');
+  console.log(c + " total timed number");
+  if(c < 60){
+    console.log('stay in seconds');
+  } else {
+    timeUnit.innerText = "MINUTES";
+    // Do something to time
+    c = (c / 60).toFixed(2);
+    console.log('stay in minutes');
+  }
+  document.getElementById('total-time').innerText = c;
+  timer_is_on = 0;
 }
 
+// ********************************************
+// Clicked the SUBMIT button ****************
 
 function submitClick(){
   // Scope Guesses of both challengers
@@ -217,7 +244,6 @@ function clearClick(){
   for (i = 0; i < inputFields.length; i++) {
       inputFields[i].reset();
   }
-
   console.log('Clicked Clear');
 }
 
@@ -226,14 +252,11 @@ function clearClick(){
 function resetClick(){
   // resets all the fields and generates new random number
   clearClick();
-  // //grab values from both min and max input boxes and make them numbers
+  //grab values from both min and max input boxes and make them numbers
   var maxRange = parseInt(maxRangeInput.value);
   var minRange = parseInt(minRangeInput.value);
   generateNumber(maxRange, minRange);
-
-
   console.log('Clicked Reset');
-
 }
 
 // ********************************************
@@ -247,7 +270,6 @@ function deleteClick(){
 function easterEgg(){
   alert("the random number is");
 }
-
 
 
 // submitGuessBtn.addEventListener('click', function() {

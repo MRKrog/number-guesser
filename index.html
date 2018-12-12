@@ -3,17 +3,15 @@
 <head>
   <meta charset='UTF-8'/>
   <title>Number Guesser</title>
-
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Michael Krog's Static Composition One">
   <link rel="shortcut icon" href="images/favicon.ico" />
-
-  <!-- STYLESHEETS/CSS -->
+  <!-- STYLESHEETS / CSS -->
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" crossorigin="anonymous">
 </head>
 <body>
   <header>
@@ -29,11 +27,12 @@
         <form class="form-row">
           <fieldset class="set-range-row">
             <label>Min Range</label>
-            <input type="number" class="input-small" type="text" name="min-range" id="min-range-input">
+            <input type="number" class="input-field range-field" type="text" name="min-range" id="min-range-input">
+            <label><i class="fas fa-exclamation-triangle"></i></label>
           </fieldset>
           <fieldset class="set-range-row">
             <label>Max Range</label>
-            <input type="number" class="input-small" type="text" name="max-range" id="max-range-input">
+            <input type="number" class="input-field range-field" type="text" name="max-range" id="max-range-input">
           </fieldset>
           <div class="set-range-row button-container">
             <button type="button" id="set-range">UPDATE</button>
@@ -41,17 +40,17 @@
         </form>
       </div>
       <div class="box-content guesser">
-        <p>The Current Range is <span id="min-range-output">1</span> to <span id="max-range-output">100</span></p>
-        <fieldset >
+        <p>The Current Range is <span id="min-range-output">Enter Min</span> to <span id="max-range-output">Enter Max</span></p>
+        <fieldset>
           <h3>Challenger 1</h3>
           <section class="form-section">
             <form class="myForm">
               <label>Name</label>
-              <input class="input-large" type="text" name="name1" id="name-one">
+              <input class="input-field" type="text" name="name1" id="name-one">
             </form>
             <form class="myForm">
               <label>Guess</label>
-              <input type="number" class="input-small" type="text" name="guess1" id="guess-one" min="" max="" required>
+              <input type="number" class="input-field" type="text" name="guess1" id="guess-one" min="" max="" required>
             </form>
           </section>
         </fieldset>
@@ -60,11 +59,11 @@
           <section class="form-section">
             <form class="myForm">
               <label>Name</label>
-              <input class="input-large" type="text" name="name2" id="name-two">
+              <input class="input-field" type="text" name="name2" id="name-two">
             </form>
             <form class="myForm">
               <label>Guess</label>
-              <input type="number" class="input-small" type="text" name="guess2" id="guess-two" min="" max="" required>
+              <input type="number" class="input-field" type="text" name="guess2" id="guess-two" min="1" max="5" required>
             </form>
           </section>
         </fieldset>

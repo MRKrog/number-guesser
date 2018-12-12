@@ -209,7 +209,7 @@ div.button-container button.light-btn {
   position: relative;
 }
 
-.box-content.guesser:before {
+/*.box-content.guesser:before {
   content: "Please Select A Range";
   position: absolute;
   background: rgba(204, 204, 204, .9);
@@ -217,12 +217,11 @@ div.button-container button.light-btn {
   height: 100%;
   top: 0px;
   left: 0px;
-  /* display: none; */
   font-size: 2em;
   font-weight: 600;
   text-align: center;
   line-height: 8;
-}
+}*/
 
 form.form-row {
   display: flex;

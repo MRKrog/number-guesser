@@ -153,6 +153,7 @@ function submitClick(){
   guessPlaceholder += 1;
 
   // Change Name Taken From Inputs
+  checkSubmit();
   changeName();
   changeGuess();
   startCount();
@@ -161,6 +162,15 @@ function submitClick(){
   compareGuessTwo(guessTwoSubmit);
 
 }
+
+function checkSubmit(){
+  if (nameOne.value === null || nameOne.value === "") {
+    nameError = "Please enter a valid name";
+    document.getElementById("name-error").innerHTML = nameError;
+    submit = false;
+  }
+}
+
 // Change Names Across Page on SUBMIT Click
 function changeName(){
   for (i = 0; i < challengerOne.length; i++) {

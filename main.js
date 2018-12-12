@@ -153,21 +153,26 @@ function submitClick(){
   guessPlaceholder += 1;
 
   // Change Name Taken From Inputs
-  checkSubmit();
+  checkNameOne();
+  checkNameTwo();
+
+
+
   changeName();
   changeGuess();
   startCount();
   compareBoth(guessOneSubmit, guessTwoSubmit); //function to see if they guessed the same reset if they did
   compareGuessOne(guessOneSubmit);
   compareGuessTwo(guessTwoSubmit);
-
 }
 
-function checkSubmit(){
+function checkNameOne(){
   if (nameOne.value === null || nameOne.value === "") {
-    nameError = "Please enter a valid name";
+    var nameError = "Enter a name";
+    document.getElementById("error-name-one").classList.remove('error-off');
+    document.getElementById("error-name-one").classList.add('error-on');
     document.getElementById("name-error").innerHTML = nameError;
-    submit = false;
+    nameOne.classList.add('error-border-on');
   }
 }
 

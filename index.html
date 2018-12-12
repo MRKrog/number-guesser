@@ -28,7 +28,6 @@
           <fieldset class="set-range-row">
             <label>Min Range</label>
             <input type="number" class="input-field range-field" type="text" name="min-range" id="min-range-input">
-            <label><i class="fas fa-exclamation-triangle"></i></label>
           </fieldset>
           <fieldset class="set-range-row">
             <label>Max Range</label>
@@ -46,7 +45,8 @@
           <section class="form-section">
             <form class="myForm">
               <label>Name</label>
-              <input class="input-field" type="text" name="name1"  placeholder="Enter Name Player 1" id="name-one"> <span class="error"><p id="name-error"></p></span>
+              <input class="input-field" type="text" name="name1" id="name-one">
+              <span id="error-name-one" class="error error-off"><i class="fas fa-exclamation-triangle"></i><p id="name-error" class="name-error"></p></span>
             </form>
             <form class="myForm">
               <label>Guess</label>

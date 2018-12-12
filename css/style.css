@@ -240,14 +240,6 @@ form.form-row {
   margin: 0;
 }
 
-input.pinkBorder {
-  border: #DD1972 solid 2px;
-}
-
-input:invalid {
-  border: #DD1972 solid 2px;
-}
-
 /* guesser styles */
 .box-content.guesser p {
   color: #525252;
@@ -270,6 +262,48 @@ input:invalid {
 section.form-section {
   display: flex;
 }
+
+form.myForm {
+  position: relative;
+}
+
+/* error styles */
+.error {
+}
+.error-on {
+  line-height: 1;
+  display: table;
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+}
+.error-off {
+  display: none;
+}
+#name-error {
+  color: #DD1972;
+  font-size: 12px;
+  display: inline-block;
+  padding-bottom: 0;
+  line-height: .85;
+  vertical-align: bottom;
+}
+#name-error::before {
+  content:"";
+}
+.error i {
+  color: #DD1972;
+  font-size: 10px;
+  padding-right: 4px;
+  line-height: 1;
+}
+input.error-border-on {
+  border: #DD1972 solid 2px;
+}
+input.error-border-off {
+  border: none;
+}
+
 
 /* last guess styles */
 .box-content.last-guess section {

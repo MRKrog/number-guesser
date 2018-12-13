@@ -8,7 +8,7 @@ var setRangeBtn = document.querySelector('#set-range');
 var submitGuessBtn = document.querySelector('#submit-btn');
 var resetBtn = document.querySelector('#reset-btn');
 var clearBtn = document.querySelector('#clear-btn');
-var deleteBtn = document.querySelector('.delete-btn'); //Will Have To Update
+
 
 // Initialzed Set Range Variables
 var minRangeInput = document.querySelector('#min-range-input');
@@ -33,16 +33,12 @@ var statementOne = document.querySelector('#statement-one'); // Show Challenger 
 var statementTwo = document.querySelector('#statement-two'); // Show Challenger Two high or low field
 
 // Initialzed Score Card Variables
-// will have to change to a class or something else
-var winnerName = document.querySelector('#winner-name'); // Placeholder for the winner slot
-var totalGuesses = document.querySelector('#total-guesses'); // Placeholder for the total guesses
 var guessPlaceholder = 0;
-
-var totalTime = document.querySelector('#total-time');
-var timeUnit = document.querySelector('#time-unit');
-
-
-
+// Time Variables
+var c = 0;
+var t;
+var timer_is_on = 0;
+var timeString;
 
 // ********************************************
 // EVENT LISTENERS ****************************
@@ -51,28 +47,31 @@ setRangeBtn.addEventListener('click', updateClick);
 submitGuessBtn.addEventListener('click', submitClick);
 resetBtn.addEventListener('click', resetClick);
 clearBtn.addEventListener('click', clearClick);
-deleteBtn.addEventListener('click', deleteClick);
 // Error Fields for setting range
 nameOne.addEventListener('keyup', removeError);
 nameTwo.addEventListener('keyup', removeError);
 minRangeInput.addEventListener('keyup', removeError);
 maxRangeInput.addEventListener('keyup', removeRange);
-// Error Fields for guess inputs
 
+// change reset and clear class listeners
+guessOne.addEventListener('keyup', btnActivate);
+guessTwo.addEventListener('keyup', btnActivate);
+nameOne.addEventListener('keyup', btnActivate);
+nameTwo.addEventListener('keyup', btnActivate);
 
+var guessFieldsAll = document.getElementById('name-one');
+// var guessFieldsAll = document.querySelectorAll('.guess-field');
 
+function btnActivate(){
+  if(this.value){
+    clearBtn.classList.remove('light-btn');
+    resetBtn.classList.remove('light-btn');
 
-// event listener to detect if fields in guesser have characters
-document.querySelector('.guess-field').addEventListener('keyup', function (event) {
-  console.log(event.target);
-
-  if(event.target.value !== ''){
     console.log('something');
   } else {
     console.log('nothing');
   }
-
-});
+}
 
 // ********************************************
 // FUNCTIONS **********************************
@@ -135,9 +134,7 @@ function addBorder(){
 function removeRange() {
   document.getElementById("max-range-input").classList.remove('error-border-on');
 }
-
 function changeRange(max, min){
-  // Change text of current range to min and max values
   minRangeOutput.innerText = min;
   maxRangeOutput.innerText = max;
 }
@@ -149,36 +146,29 @@ function generateNumber(max, min){
 // ***************
 // Timer Functions
 // ***************
-var c = 0;
-var t;
-var timer_is_on = 0;
-
 function timedCount() {
   c = c + 1;
   t = setTimeout(timedCount, 1000);
 }
 
 function startCount() {
-    if (!timer_is_on) {
-      timer_is_on = 1;
-      timedCount();
-    }
+  if (!timer_is_on) {
+    timer_is_on = 1;
+    timedCount();
+  }
 }
 
 function stopCount() {
   clearTimeout(t); // stops the count
-  console.log('stopped count');
-  console.log(c + " total timed number");
   if(c < 60){
-    console.log('stay in seconds');
+    timeString = "SECONDS";
   } else {
-    timeUnit.innerText = "MINUTES";
+    timeString = "MINUTES";
     // Do something to time
     c = (c / 60).toFixed(2);
-    console.log('stay in minutes');
   }
-  document.getElementById('total-time').innerText = c;
   timer_is_on = 0;
+  t = 0;
 }
 
 // ********************************************
@@ -222,13 +212,11 @@ function checkGuesses(guessOneSubmit, guessTwoSubmit){
   }
 }
 
-
 function removeError() {
   document.getElementById(this.id + "_error").classList.remove('error-on');
   document.getElementById(this.id + "_error").classList.add('error-off');
   document.getElementById(this.id).classList.remove('error-border-on');
 }
-
 
 // Change Names Across Page on SUBMIT Click
 function changeName(){
@@ -244,12 +232,7 @@ function changeGuess(){
   lastGuessOne.innerText = guessOne.value;
   lastGuessTwo.innerText = guessTwo.value;
 }
-// Compare the results of both challengers
-// function compareGuess(guessOneSubmit, guessTwoSubmit){
-//   console.log("Challenger 1 Guessed " + guessOneSubmit);
-//   console.log("Challenger 2 Guessed " + guessTwoSubmit);
-//   console.log("The Random Number is " + randomNumber);
-// }
+
 // function to see if player one guessed right
 function compareGuessOne(guessOneSubmit) {
   if(guessOneSubmit === randomNumber){
@@ -261,6 +244,7 @@ function compareGuessOne(guessOneSubmit) {
     statementOne.innerText = "that's too low";
   }
 }
+
 // function to see if player two guessed right
 function compareGuessTwo(guessTwoSubmit) {
   if(guessTwoSubmit === randomNumber){
@@ -272,48 +256,65 @@ function compareGuessTwo(guessTwoSubmit) {
     statementTwo.innerText = "that's too low";
   }
 }
+
 // function to build the card with the winners
 function buildCard(winner){
-  console.log(winner);
-  winnerName.innerText = winner.value;
-  totalGuesses.innerText = guessPlaceholder;
-
-  // totalTime.innerText = t;
-
   stopCount();
-  // Both challenge names up top
-  // Winner NAME
-  // Guesses Amount
-  // Time Taken
 
 
-  //
-  // productContainerOne.insertAdjacentHTML(
-  // 'beforeend',
-  // `<p class="option-comp"><span>Deck Square Footage</span> - N/A</p>
-  // <p class="option-comp"><span>Deck Capacity (people)</span> - 3 people</p>
-  // <p class="option-comp"><span>Walkway Width</span> - 3'6"</p>`
-  // );
-}
-function compareBoth(a, b){
-  if (a === b){
-    alert('guess different numbers you cheaters');
+  var rightSideContainer = document.getElementById("right-side-container");
+  rightSideContainer.insertAdjacentHTML('beforeend',
+    `<section class="box-challenge">
+        <div class="row-one">
+          <h3 class="challenger-one">${nameOne.value}</h3>
+          <span>vs</span>
+          <h3 class="challenger-two">${nameTwo.value}</h3>
+        </div>
+        <div class="row-two">
+          <h2><span>${winner.value}</span><span>WINNER</span></h2>
+        </div>
+        <div class="row-three">
+          <p><span>${guessPlaceholder}</span> <span>GUESSES</span></p>
+          <p><span id="total-time">${t}</span> <span id="time-unit">${timeString}</span></p>
+          <button class="delete-btn"><span>x</span></button>
+        </div>
+      </section>`
+  );
+  var deleteBtn = document.querySelectorAll('.delete-btn');
+  for (i = 0; i < deleteBtn.length; i++) {
+      deleteBtn[i].addEventListener('click', deleteClick);
   }
-  else {
+  c = 0;
+  guessPlaceholder = 0;
+  moveRange();
+}
+
+function moveRange(){
+  var moveMax = parseInt((maxRangeInput.value) + 10);
+  var moveMin = parseInt((minRangeInput.value) - 10);
+
+  checkRange(moveMax, moveMin)
+}
+
+function compareBoth(guessOneSubmit, guessTwoSubmit){
+  if ((guessOneSubmit === guessTwoSubmit) && (guessOneSubmit === randomNumber)){
+    alert('Tie Game You Both Win');
+    resetClick();
+  } else if (guessOneSubmit === guessTwoSubmit) {
+    alert('guess different numbers you cheaters');
+    resetClick();
+  } else {
     console.log('both numbers dont equal each other')
   }
 }
 
-
 // ********************************************
 // Clicked the CLEAR button ****************
 function clearClick(){
-  // resets all the input fields in the current number
   var inputFields = document.querySelectorAll(".myForm");
   for (i = 0; i < inputFields.length; i++) {
       inputFields[i].reset();
   }
-  console.log('Clicked Clear');
 }
 
 // ********************************************
@@ -321,11 +322,18 @@ function clearClick(){
 function resetClick(){
   // resets all the fields and generates new random number
   clearClick();
+  clearGuess();
   //grab values from both min and max input boxes and make them numbers
   var maxRange = parseInt(maxRangeInput.value);
   var minRange = parseInt(minRangeInput.value);
   generateNumber(maxRange, minRange);
-  console.log('Clicked Reset');
+}
+
+function clearGuess(){
+  challengerOne[0].innerText = "Challenger 1 Name";
+  challengerTwo[0].innerText = "Challenger 2 Name";
+  lastGuessOne.innerText = "?";
+  lastGuessTwo.innerText = "?";
 }
 
 // ********************************************

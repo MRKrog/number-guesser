@@ -361,8 +361,8 @@ section.box-challenge {
   border: #aaaaaa solid 1px;
   background-color: #fff;
   padding: 0 .5em;
-  margin-bottom: .5em;
   margin: auto;
+  margin-bottom: 1em;
   max-width: 600px;
 }
 

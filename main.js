@@ -311,6 +311,8 @@ function resetClick(){
   // resets all the fields and generates new random number
   clearClick();
   clearGuess();
+  clearBtn.classList.add('light-btn');
+  resetBtn.classList.add('light-btn');
   //grab values from both min and max input boxes and make them numbers
   var maxRange = parseInt(maxRangeInput.value);
   var minRange = parseInt(minRangeInput.value);

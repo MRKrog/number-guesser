@@ -47,6 +47,7 @@ setRangeBtn.addEventListener('click', updateClick);
 submitGuessBtn.addEventListener('click', submitClick);
 resetBtn.addEventListener('click', resetClick);
 clearBtn.addEventListener('click', clearClick);
+
 // Error Fields for setting range
 nameOne.addEventListener('keyup', removeError);
 nameTwo.addEventListener('keyup', removeError);
@@ -59,17 +60,10 @@ guessTwo.addEventListener('keyup', btnActivate);
 nameOne.addEventListener('keyup', btnActivate);
 nameTwo.addEventListener('keyup', btnActivate);
 
-var guessFieldsAll = document.getElementById('name-one');
-// var guessFieldsAll = document.querySelectorAll('.guess-field');
-
 function btnActivate(){
   if(this.value){
     clearBtn.classList.remove('light-btn');
     resetBtn.classList.remove('light-btn');
-
-    console.log('something');
-  } else {
-    console.log('nothing');
   }
 }
 
@@ -134,10 +128,12 @@ function addBorder(){
 function removeRange() {
   document.getElementById("max-range-input").classList.remove('error-border-on');
 }
+
 function changeRange(max, min){
   minRangeOutput.innerText = min;
   maxRangeOutput.innerText = max;
 }
+
 function generateNumber(max, min){
   randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
   console.log("The Random Number is " + randomNumber);
@@ -196,9 +192,10 @@ function checkNames(){
 }
 
 function checkGuesses(guessOneSubmit, guessTwoSubmit){
-  var maxRange = parseInt(maxRangeInput.value); // Max Range Input Value
-  var minRange = parseInt(minRangeInput.value); // Min Range Input Value
-  if((guessOneSubmit <= maxRange && guessOneSubmit >= minRange) && (guessTwoSubmit <= maxRange && guessTwoSubmit >= minRange)){
+  var maxField = parseInt(maxRangeOutput.innerText); // Max Range Input Value
+  var minField = parseInt(minRangeOutput.innerText); // Min Range Input Value
+
+  if((guessOneSubmit <= maxField && guessOneSubmit >= minField) && (guessTwoSubmit <= maxField && guessTwoSubmit >= minField)){
     guessPlaceholder += 1;
     changeName();
     changeGuess();
@@ -260,8 +257,6 @@ function compareGuessTwo(guessTwoSubmit) {
 // function to build the card with the winners
 function buildCard(winner){
   stopCount();
-
-
   var rightSideContainer = document.getElementById("right-side-container");
   rightSideContainer.insertAdjacentHTML('beforeend',
     `<section class="box-challenge">
@@ -275,7 +270,7 @@ function buildCard(winner){
         </div>
         <div class="row-three">
           <p><span>${guessPlaceholder}</span> <span>GUESSES</span></p>
-          <p><span id="total-time">${t}</span> <span id="time-unit">${timeString}</span></p>
+          <p><span id="total-time">${c}</span> <span id="time-unit">${timeString}</span></p>
           <button class="delete-btn"><span>x</span></button>
         </div>
       </section>`
@@ -286,13 +281,8 @@ function buildCard(winner){
   }
   c = 0;
   guessPlaceholder = 0;
-  moveRange();
-}
-
-function moveRange(){
-  var moveMax = parseInt((maxRangeInput.value) + 10);
-  var moveMin = parseInt((minRangeInput.value) - 10);
-
+  var moveMax = parseInt(maxRangeInput.value) + 10;
+  var moveMin = parseInt(minRangeInput.value) - 10;
   checkRange(moveMax, moveMin)
 }
 
@@ -303,8 +293,6 @@ function compareBoth(guessOneSubmit, guessTwoSubmit){
   } else if (guessOneSubmit === guessTwoSubmit) {
     alert('guess different numbers you cheaters');
     resetClick();
-  } else {
-    console.log('both numbers dont equal each other')
   }
 }
 
@@ -313,7 +301,7 @@ function compareBoth(guessOneSubmit, guessTwoSubmit){
 function clearClick(){
   var inputFields = document.querySelectorAll(".myForm");
   for (i = 0; i < inputFields.length; i++) {
-      inputFields[i].reset();
+    inputFields[i].reset();
   }
 }
 
@@ -347,123 +335,3 @@ function deleteClick(){
 function easterEgg(){
   alert("the random number is");
 }
-
-
-// submitGuessBtn.addEventListener('click', function() {
-//   challengerOne.innerText = parseInt(nameOne.value);
-//   challengerTwo.innerText = parseInt(nameTwo.value);
-// })
-//
-//
-// submitGuessBtn.addEventListener('click', function() {
-//   lastGuessOne.innerText = guessOne.value;
-//   lastGuessTwo.innerText = guessTwo.value;
-//
-// })
-
-
-
-
-
-
-
-
-
-
-// document.getElementById("myBtn").addEventListener("click", function() {
-//     myFunction(p1, p2);
-// });
-
-// document.querySelector('#status').innerText = "Your warm and uplifting";
-
-// document.querySelector('h1').innerText = "A Stellar Record of my performance";
-
-// var x = document.querySelectorAll(".student");
-// for (i = 0; i < x.length; i++) {
-//     x[i].innerText = "Mike";
-// }
-
-// function changeGrade(){
-//   var grade = document.querySelectorAll(".grade");
-//   for (i = 0; i < grade.length; i++) {
-//     grade[i].innerText = "A+";
-//   }
-// }
-
-// document.querySelector(".change-text").addEventListener("click", changeGrade);
-// var header = document.querySelector('h1');
-
-// function capElement() {
-//   header.innerText = header.innerText.toUpperCase();
-// }
-
-
-
-// document.querySelector("h1").contentEditable = true;
-
-
-// document.querySelector("h1").addEventListener('click', function() {
-
-//   console.log('anchor');
-// });
-
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//  function setRange(){
-//
-//  }
-// });
-
-
-// Page loads - script is called
-//
-// // helper function to trigger alert
-// function showAlert() {
-//   alert('You clicked me!');
-// }
-//
-// //Go to the page, find special new button
-// var addNewButton = document.querySelector('.add-new');
-//
-// //Go to the page, find the parent element of the buttons
-// var buttonDiv = document.querySelector('.parent');
-//
-// // Add a new button to the page whenever the "Add a new button below." button
-// // is pressed.
-//
-// // We refence the variable defined earlier which found our special new button on the page and assigned an event listener to trigger specifically on click that calls an anonymous function
-// addNewButton.addEventListener('click', function () {
-//   // assigning a var to the creation of a new dom node
-//   var newButton = document.createElement('button');
-//   // adding a class to our new dom node
-//   newButton.className = 'button';
-//   // Adding text content to the new dom node
-//   newButton.textContent = "New click me button!";
-//   // Spitting said dom node on to page
-//   buttonDiv.appendChild(newButton);
-// });
-//
-// // Bind an event to all of the "Click me!" buttons that shows an alert.
-//
-// //Go to the page, find all buttons within the parent div
-// var allButtons = document.querySelectorAll('.parent .button');
-//
-// // For loop that iterates through the pre-defined variable that went out and found all the buttons on the page at page load
-// // for(var i = 0; i < allButtons.length; i++){
-// //   allButtons[i].addEventListener('click', showAlert);
-// // }
-//
-//
-//
-// buttonDiv.addEventListener('click', function(event) {
-//   if (event.target.className === 'button') {
-//     console.log('clicked button');
-//     showAlert();
-//     // do your action on your 'button' or whatever it is you're listening for
-//   }
-// });
-
-// document.querySelector('.button').addEventListener('click', function (event) {
-//   console.log(event.target);
-// });

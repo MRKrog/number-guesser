@@ -52,19 +52,27 @@ submitGuessBtn.addEventListener('click', submitClick);
 resetBtn.addEventListener('click', resetClick);
 clearBtn.addEventListener('click', clearClick);
 deleteBtn.addEventListener('click', deleteClick);
+// Error Fields for setting range
+nameOne.addEventListener('keyup', removeError);
+nameTwo.addEventListener('keyup', removeError);
+minRangeInput.addEventListener('keyup', removeError);
+maxRangeInput.addEventListener('keyup', removeRange);
+// Error Fields for guess inputs
+
+
+
 
 // event listener to detect if fields in guesser have characters
-document.querySelector('.myForm').addEventListener('click', function (event) {
+document.querySelector('.guess-field').addEventListener('keyup', function (event) {
   console.log(event.target);
 
-  if(event.target.className === 'input-field'){
-    console.log('in input');
-    // if()
+  if(event.target.value !== ''){
+    console.log('something');
   } else {
-
+    console.log('nothing');
   }
-});
 
+});
 
 // ********************************************
 // FUNCTIONS **********************************
@@ -79,22 +87,53 @@ function updateClick(){
 }
 //Check to see if the min range is greater than the max range
 function checkRange(maxRange, minRange){
-  if(minRange > maxRange){
-    addBorder();
-    for (i = 0; i < rangeFields.length; i++) {
-      rangeFields[i].value = "";
-      rangeFields[i].classList.add("pinkBorder");
-    }
+  if(minRangeInput.value === "" || maxRangeInput.value === "") {
+    noRange();
+    return false;
+  } else if(minRange === maxRange){
+    sameRange();
+    return false;
   }
-  else {
-    removeBorder();
+  else if(minRange > maxRange){
+    lowerRange();
+    return false;
+  } else {
     changeRange(maxRange, minRange);
     generateNumber(maxRange, minRange);
   }
 }
 
-function addBorder(){
+function noRange(){
+  addBorder();
+  var noRangeField =  "Make Sure To Enter A Number for both";
+  document.getElementById("range-error").innerHTML = noRangeField;
+  document.getElementById("min-range-input_error").classList.remove('error-off');
+  document.getElementById("min-range-input_error").classList.add('error-on');
+}
 
+function sameRange(){
+  addBorder();
+  var sameRangeField = "Your Minimum is the same as Maximum";
+  document.getElementById("range-error").innerHTML = sameRangeField;
+  document.getElementById("min-range-input_error").classList.remove('error-off');
+  document.getElementById("min-range-input_error").classList.add('error-on');
+}
+
+function lowerRange(){
+  addBorder();
+  var lowRangeField = "Your Minimum is larger than Maximum";
+  document.getElementById("range-error").innerHTML = lowRangeField;
+  document.getElementById("min-range-input_error").classList.remove('error-off');
+  document.getElementById("min-range-input_error").classList.add('error-on');
+}
+
+function addBorder(){
+  minRangeInput.classList.add('error-border-on');
+  maxRangeInput.classList.add('error-border-on');
+}
+
+function removeRange() {
+  document.getElementById("max-range-input").classList.remove('error-border-on');
 }
 
 function changeRange(max, min){
@@ -149,32 +188,47 @@ function submitClick(){
   // Scope Guesses of both challengers
   var guessOneSubmit = parseInt(guessOne.value);
   var guessTwoSubmit = parseInt(guessTwo.value);
-
-  guessPlaceholder += 1;
-
-  // Change Name Taken From Inputs
-  checkNameOne();
-  checkNameTwo();
-
-
-
-  changeName();
-  changeGuess();
-  startCount();
-  compareBoth(guessOneSubmit, guessTwoSubmit); //function to see if they guessed the same reset if they did
-  compareGuessOne(guessOneSubmit);
-  compareGuessTwo(guessTwoSubmit);
+  checkNames();
+  checkGuesses(guessOneSubmit, guessTwoSubmit);
 }
 
-function checkNameOne(){
-  if (nameOne.value === null || nameOne.value === "") {
-    var nameError = "Enter a name";
-    document.getElementById("error-name-one").classList.remove('error-off');
-    document.getElementById("error-name-one").classList.add('error-on');
-    document.getElementById("name-error").innerHTML = nameError;
+function checkNames(){
+  if (nameOne.value === "") {
+    document.getElementById("name-one_error").classList.remove('error-off');
+    document.getElementById("name-one_error").classList.add('error-on');
     nameOne.classList.add('error-border-on');
   }
+  if (nameTwo.value === ""){
+    document.getElementById("name-two_error").classList.remove('error-off');
+    document.getElementById("name-two_error").classList.add('error-on');
+    nameTwo.classList.add('error-border-on');
+  }
 }
+
+function checkGuesses(guessOneSubmit, guessTwoSubmit){
+  var maxRange = parseInt(maxRangeInput.value); // Max Range Input Value
+  var minRange = parseInt(minRangeInput.value); // Min Range Input Value
+  if((guessOneSubmit <= maxRange && guessOneSubmit >= minRange) && (guessTwoSubmit <= maxRange && guessTwoSubmit >= minRange)){
+    guessPlaceholder += 1;
+    changeName();
+    changeGuess();
+    startCount();
+    compareBoth(guessOneSubmit, guessTwoSubmit); //function to see if they guessed the same reset if they did
+    compareGuessOne(guessOneSubmit);
+    compareGuessTwo(guessTwoSubmit);
+  } else {
+    alert('please select value within the range');
+    return false;
+  }
+}
+
+
+function removeError() {
+  document.getElementById(this.id + "_error").classList.remove('error-on');
+  document.getElementById(this.id + "_error").classList.add('error-off');
+  document.getElementById(this.id).classList.remove('error-border-on');
+}
+
 
 // Change Names Across Page on SUBMIT Click
 function changeName(){

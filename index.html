@@ -37,20 +37,21 @@
             <button type="button" id="set-range">UPDATE</button>
           </div>
         </form>
+        <span id="min-range-input_error" class="error error-off"><i class="fas fa-exclamation-triangle"></i><p id="range-error" class="name-error"></p></span>
       </div>
       <div class="box-content guesser">
-        <p>The Current Range is <span id="min-range-output">Enter Min</span> to <span id="max-range-output">Enter Max</span></p>
+        <p>The Current Range is <span id="min-range-output">Min Range</span> to <span id="max-range-output">Max Range</span></p>
         <fieldset>
           <h3>Challenger 1</h3>
           <section class="form-section">
-            <form class="myForm">
+            <form class="myForm guessForm">
               <label>Name</label>
-              <input class="input-field" type="text" name="name1" id="name-one">
-              <span id="error-name-one" class="error error-off"><i class="fas fa-exclamation-triangle"></i><p id="name-error" class="name-error"></p></span>
+              <input class="input-field guess-field" type="text" name="name1" id="name-one">
+              <span id="name-one_error" class="error error-off"><i class="fas fa-exclamation-triangle"></i><p class="name-error">Enter a name</p></span>
             </form>
-            <form class="myForm">
+            <form class="myForm guessForm">
               <label>Guess</label>
-              <input type="number" class="input-field" type="text" name="guess1" id="guess-one" min="" max="" required>
+              <input type="number" class="input-field guess-field" type="text" name="guess1" id="guess-one" required>
             </form>
           </section>
         </fieldset>
@@ -59,11 +60,12 @@
           <section class="form-section">
             <form class="myForm">
               <label>Name</label>
-              <input class="input-field" type="text" name="name2" id="name-two">
+              <input class="input-field guess-field" type="text" name="name2" id="name-two">
+              <span id="name-two_error" class="error error-off"><i class="fas fa-exclamation-triangle"></i><p class="name-error">Enter a name</p></span>
             </form>
-            <form class="myForm">
+            <form class="myForm guessForm">
               <label>Guess</label>
-              <input type="number" class="input-field" type="text" name="guess2" id="guess-two" min="1" max="5" required>
+              <input type="number" class="input-field guess-field" type="text" name="guess2" id="guess-two" required>
             </form>
           </section>
         </fieldset>

@@ -11,3 +11,9 @@ Here is the comp we were asked to replicate:
 We were asked to make it functional for a mobile user, making the fields stack on top of each other, and have it appear as follows:
 
 Here are a couple images of what we were able to come up with:
+
+### Static Composition
+![Static Composition 1 From Turing](images/assignment.jpg)
+
+### My Assignment Screen Grab
+![Screen Grab of My Assignment](images/live-site.png)

@@ -299,6 +299,8 @@ function compareBoth(guessOneSubmit, guessTwoSubmit){
 // ********************************************
 // Clicked the CLEAR button ****************
 function clearClick(){
+  clearBtn.classList.add('light-btn');
+  resetBtn.classList.add('light-btn');
   var inputFields = document.querySelectorAll(".myForm");
   for (i = 0; i < inputFields.length; i++) {
     inputFields[i].reset();

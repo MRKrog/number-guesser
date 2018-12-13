@@ -6,11 +6,6 @@ This project stretched our knowledge of javaScript. We built fluency with grabbi
 We tried to push ourselves to research various aspects of the pages functionality, making sure we understood what we were finding. This included looking in to multiple ways to set a timer, figuring out how to track how many times a certain button had been clicked, and the generation of new HTML content using javaScript, in the form of an end-of-the-game card, showing the winner and several details about this game. This particularly proved to be a challenge as we had to think about how to make it dynamic, each subsequent card appearing with different information.
 Overall, completing this project was very rewarding and helped us learn a lot about event listeners, changing elements and CSS properties through javaScript, and just bolstering our knowledge of how pieces fit together and interact with one another in javaScript.
 ## Images
-Here is the comp we were asked to replicate:
-
-We were asked to make it functional for a mobile user, making the fields stack on top of each other, and have it appear as follows:
-
-Here are a couple images of what we were able to come up with:
 
 ### Static Composition
 ![Static Composition 1 From Turing](images/assignment.jpg)
